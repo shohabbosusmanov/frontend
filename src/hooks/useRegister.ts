@@ -1,1 +1,1 @@
-export const useRegister = (email: string, password: string) => {};
+// export const useRegister = (email: string, password: string) => {};
