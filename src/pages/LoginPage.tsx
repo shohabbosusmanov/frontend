@@ -20,7 +20,7 @@ export const LoginPage = () => {
                 email,
                 password,
             });
-            if (response.status === 200) {
+            if (response.request.status === 200) {
                 toast.success("success");
                 setUserData(response.data.data);
                 setLoading(false);
@@ -29,6 +29,8 @@ export const LoginPage = () => {
                 }, 500);
             }
         } catch (error: any) {
+            console.log(error);
+
             toast.error(error.message);
             setLoading(false);
         }

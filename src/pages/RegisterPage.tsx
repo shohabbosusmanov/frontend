@@ -15,13 +15,15 @@ export const RegisterPage = () => {
         event.preventDefault();
         const email = emailInputRef.current?.value;
         const password = passwordInputRef.current?.value;
+
         try {
             setLoading(true);
             const response = await axiosInstance.post("auth/register", {
                 email,
                 password,
             });
-            if (response.status === 200) {
+
+            if (response.request.status === 201) {
                 toast.success("success");
                 setUserData(response.data.data);
                 setLoading(false);
@@ -32,6 +34,8 @@ export const RegisterPage = () => {
             }
         } catch (error: any) {
             toast.error(error.message);
+            console.log(error);
+
             setLoading(false);
         }
     };
