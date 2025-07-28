@@ -33,8 +33,7 @@ export const RegisterPage = () => {
                 }, 500);
             }
         } catch (error: any) {
-            toast.error(error.message);
-            console.log(error);
+            toast.error(error.response.data.message);
 
             setLoading(false);
         }

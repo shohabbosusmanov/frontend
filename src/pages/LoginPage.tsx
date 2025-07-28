@@ -29,9 +29,7 @@ export const LoginPage = () => {
                 }, 500);
             }
         } catch (error: any) {
-            console.log(error);
-
-            toast.error(error.message);
+            toast.error(error.response.data.message);
             setLoading(false);
         }
     };
