@@ -16,10 +16,16 @@ export const LoginPage = () => {
         const password = passwordInputRef.current?.value;
         try {
             setLoading(true);
-            const response = await axiosInstance.post("auth/login", {
-                email,
-                password,
-            });
+            const response = await axiosInstance.post(
+                "auth/login",
+                {
+                    email,
+                    password,
+                },
+                {
+                    withCredentials: true,
+                }
+            );
             if (response.request.status === 200) {
                 toast.success("success");
                 setUserData(response.data.data);
