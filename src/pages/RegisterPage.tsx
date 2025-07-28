@@ -18,16 +18,10 @@ export const RegisterPage = () => {
 
         try {
             setLoading(true);
-            const response = await axiosInstance.post(
-                "auth/register",
-                {
-                    email,
-                    password,
-                },
-                {
-                    withCredentials: true,
-                }
-            );
+            const response = await axiosInstance.post("auth/register", {
+                email,
+                password,
+            });
 
             if (response.request.status === 201) {
                 toast.success("success");
